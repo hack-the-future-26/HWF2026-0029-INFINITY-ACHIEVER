@@ -1,3 +1,149 @@
+# 🏙️ CityConnect
+
+**Smart Civic Issue Reporting & Accountability Platform**
+*Empowering Citizens, Ensuring Efficient City Services*
+
+> Reporting an issue is easy. Ensuring it gets fixed is the challenge — CityConnect closes that loop.
+
+**Team:** Infinity Achiever · **Team ID:** HWF2026-0029 · **Hackathon:** Hack the Future 26
+
+---
+
+## 📌 The Problem
+
+Citizens report civic issues every day, but most of those reports disappear into a black hole:
+
+- 🕳️ Potholes remain unrepaired
+- 🗑️ Garbage complaints are ignored
+- 💡 Broken streetlights stay unresolved
+- 📉 Citizens have no way to track complaint status
+- 🏛️ Authorities lack a centralized dashboard for issue management
+
+## 💡 The Solution
+
+CityConnect is a single platform that takes a civic issue **from report to verified resolution**:
+
+```
+Report → Detect → Assign → Track → Resolve → Verify
+```
+
+| Stage | What Happens |
+|---|---|
+| **Report** | Citizens submit issues with a photo, description, and precise map location |
+| **Detect** | AI analyzes the photo to auto-suggest a category and flag likely duplicate reports |
+| **Assign** | The issue is auto-routed to the correct municipal department with a priority + SLA deadline |
+| **Track** | Citizens follow live status updates on their dashboard |
+| **Resolve** | Authorities fix the issue and upload before/after proof photos |
+| **Verify** | Citizens confirm the resolution, closing the accountability loop |
+
+Unresolved issues also **auto-escalate** when they approach their SLA deadline, so nothing quietly falls through the cracks.
+
+## ✨ Key Features
+
+- 📸 **Photo-based reporting** with AI-assisted category detection
+- 🗺️ **Interactive map** (Leaflet) for pinpointing exact issue locations
+- 🔁 **Duplicate detection** to merge repeat reports and reduce noise
+- ⏱️ **Priority & SLA engine** — Urgent/High/Medium/Low with auto-calculated deadlines
+- 🏢 **Automatic department routing** (Public Works, Sanitation, Electrical, Water, Parks, Public Safety)
+- 📊 **Citizen Dashboard** — track your reports, upvote community issues, get real-time notifications
+- 🛡️ **Admin Dashboard** — filter by department/status, mark issues fixed with resolution notes and proof photos
+- 📜 **Full status timeline** on every issue (Reported → Assigned → In Progress → Fixed → Verified)
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | React 18, Vite, Tailwind CSS, Leaflet / React-Leaflet, lucide-react |
+| **Backend** | Node.js, Express, CORS |
+| **AI / Detection** | Mock AI classification & confidence scoring (image-based category detection, duplicate matching) |
+| **Data** | In-memory data store, seeded with sample civic issues (built to plug into MongoDB) |
+| **Other** | REST API, dotenv |
+
+## 📁 Project Structure
+
+```
+CityConnect/
+├── src/                     # React frontend
+│   ├── components/          # Navbar, Footer, MapView, Badges, Modals, Toasts
+│   ├── context/             # Global IssueContext (state management)
+│   ├── pages/                # Landing, Report, CitizenDashboard, AdminDashboard, IssueDetail
+│   ├── utils/                 # AI mock logic (category detection, duplicate finder)
+│   ├── App.jsx
+│   └── main.jsx
+├── server/
+│   ├── data/sampleIssues.js  # Seed data
+│   └── server.js              # Express REST API
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/hack-the-future-26/HWF2026-0029-INFINITY-ACHIEVER.git
+cd HWF2026-0029-INFINITY-ACHIEVER
+
+# Install dependencies
+npm install
+```
+
+### Running the App
+
+```bash
+# Run frontend (Vite) and backend (Express) together
+npm start
+
+# Or run them separately:
+npm run dev      # Frontend on Vite dev server
+npm run server   # Backend Express API (default port 5000)
+```
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/issues` | List issues, with filtering by category, status, priority, and search |
+| `GET` | `/api/issues/:id` | Get a single issue by ID |
+| `POST` | `/api/issues` | Submit a new issue (auto-assigns department, priority, and SLA) |
+
+## 📈 Impact
+
+| For Citizens | For Government | For Communities |
+|---|---|---|
+| Easy reporting | Centralized dashboard | Cleaner, safer surroundings |
+| Real-time updates | Smarter prioritization | Fewer unresolved issues |
+| Full transparency | Faster resolution | Stronger community trust |
+
+**Measurable outcomes:** priority scoring, SLA timers, before/after proof photos, and public trust metrics.
+
+## 🔮 Roadmap
+
+- [ ] AI-based severity detection
+- [ ] Predictive maintenance for infrastructure
+- [ ] Smart-city IoT integration
+- [ ] WhatsApp / chatbot and voice-based reporting
+- [ ] Automatic emergency issue detection
+- [ ] Analytics dashboard for city authorities
+- [ ] Multi-city deployment
+- [ ] Real database (MongoDB) integration in place of in-memory store
+
+## 👥 Team
+
+**Infinity Achiever** — Team ID `HWF2026-0029`
+Built for **Hack the Future 26**
+
+---
+
+*Our vision: build a smarter, safer, and more accountable city — join us in revolutionizing civic engagement.*
+
 # 🚀 Hack the Future 26
 ## Team Repository Guide
 
