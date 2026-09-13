@@ -1,21 +1,13 @@
-// MongoDB Mongoose Connection Module
-// If MONGODB_URI is provided in environment variables, connects to real MongoDB database.
-// Otherwise falls back smoothly to in-memory JSON store.
+import mongoose from 'mongoose';
 
-export const connectDB = async () => {
-  if (process.env.MONGODB_URI) {
-    try {
-      const mongoose = await import('mongoose');
-      const conn = await mongoose.default.connect(process.env.MONGODB_URI);
-      console.log(`🍃 MongoDB Connected: ${conn.connection.host}`);
-      return true;
-    } catch (error) {
-      console.warn(`⚠️ MongoDB connection error: ${error.message}. Running in dual in-memory mode.`);
-      return false;
-    }
-  } else {
-    console.log(`ℹ️ No MONGODB_URI configured. Operating with high-performance memory store.`);
-    return false;
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error connecting to MongoDB: ${error.message}`);
+    process.exit(1); // Exit process with failure
   }
 };
 
+export default connectDB;
